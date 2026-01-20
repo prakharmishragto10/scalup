@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
-
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 const services = [
   {
     price: "₹8,000",
@@ -98,85 +99,91 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <section className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <p className="text-orange-500 text-sm font-semibold tracking-widest uppercase mb-3">
-            Comprehensive Solutions
-          </p>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-            Services Designed to{" "}
-            <span className="text-orange-500">Accelerate Growth</span>
-          </h1>
-          <p className="text-gray-500 text-lg">
-            Choose from our comprehensive suite of digital marketing services,
-            each crafted to deliver measurable results for your business.
-          </p>
-        </motion.div>
+    <div>
+      <Navbar />
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-3xl mx-auto mb-20"
+          >
+            <p className="text-orange-500 text-sm font-semibold tracking-widest uppercase mb-3">
+              Comprehensive Solutions
+            </p>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+              Services Designed to{" "}
+              <span className="text-orange-500">Accelerate Growth</span>
+            </h1>
+            <p className="text-gray-500 text-lg">
+              Choose from our comprehensive suite of digital marketing services,
+              each crafted to deliver measurable results for your business.
+            </p>
+          </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className={`relative bg-white rounded-2xl border p-8 shadow-sm transition-all ${
-                service.popular ? "border-orange-500" : "border-gray-200"
-              }`}
-            >
-              {/* Most Popular */}
-              {service.popular && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-semibold px-4 py-1 rounded-full">
-                  Most Popular
-                </span>
-              )}
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8 }}
+                className={`relative bg-white rounded-2xl border p-8 shadow-sm transition-all ${
+                  service.popular ? "border-orange-500" : "border-gray-200"
+                }`}
+              >
+                {/* Most Popular */}
+                {service.popular && (
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                    Most Popular
+                  </span>
+                )}
 
-              {/* Price */}
-              <div className="mb-4">
-                <span className="text-3xl font-extrabold">{service.price}</span>
-                <span className="text-gray-500 ml-1">{service.duration}</span>
-              </div>
+                {/* Price */}
+                <div className="mb-4">
+                  <span className="text-3xl font-extrabold">
+                    {service.price}
+                  </span>
+                  <span className="text-gray-500 ml-1">{service.duration}</span>
+                </div>
 
-              {/* Title */}
-              <h3 className="text-xl font-bold mb-1">{service.title}</h3>
-              <p className="text-orange-500 font-medium text-sm mb-4">
-                {service.subtitle}
-              </p>
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-1">{service.title}</h3>
+                <p className="text-orange-500 font-medium text-sm mb-4">
+                  {service.subtitle}
+                </p>
 
-              {/* Description */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                {service.description}
-              </p>
+                {/* Description */}
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
 
-              {/* Features */}
-              <ul className="space-y-3 mb-8">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm">
-                    <Check className="w-4 h-4 text-orange-500" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                {/* Features */}
+                <ul className="space-y-3 mb-8">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm">
+                      <Check className="w-4 h-4 text-orange-500" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              {/* CTA */}
-              <button className="w-full flex items-center justify-center gap-2 bg-orange-500 text-white font-medium py-3 rounded-xl hover:bg-orange-600 transition">
-                Get Started <ArrowRight className="w-4 h-4" />
-              </button>
-            </motion.div>
-          ))}
+                {/* CTA */}
+                <button className="w-full flex items-center justify-center gap-2 bg-orange-500 text-white font-medium py-3 rounded-xl hover:bg-orange-600 transition">
+                  Get Started <ArrowRight className="w-4 h-4" />
+                </button>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </div>
   );
 }

@@ -15,7 +15,7 @@ const companies = [
   "Freshworks",
 ];
 
-// duplicate for seamless loop
+// duplicate for  loop
 const marqueeCompanies = [...companies, ...companies];
 
 export default function CompaniesSection() {
