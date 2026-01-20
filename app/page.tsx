@@ -7,6 +7,7 @@ import WhyChooseSection from "@/components/WhyChooseSection";
 import CompaniesSection from "@/components/CompaniesSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <CompaniesSection />
       <TestimonialSection />
       <ContactSection />
+      <Footer />
     </>
   );
 }
