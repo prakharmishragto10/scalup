@@ -16,7 +16,6 @@ export default function ContactPage() {
 
   return (
     <main className="bg-white">
-      {/* HEADER */}
       <Navbar />
       <section className="py-24">
         <div className="mx-auto max-w-5xl px-6 text-center">
