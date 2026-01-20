@@ -6,6 +6,7 @@ import FeaturesSection from "@/components/FeaturesSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import CompaniesSection from "@/components/CompaniesSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <WhyChooseSection />
       <CompaniesSection />
       <TestimonialSection />
+      <ContactSection />
     </>
   );
 }
