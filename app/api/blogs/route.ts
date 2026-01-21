@@ -20,9 +20,17 @@ export async function POST(req: Request) {
 
   const body = await req.json();
 
+  const slug = body.slug ?? slugify(body.title, { lower: true, strict: true });
+
+  // 🔒 Prevent duplicate slugs
+  const existing = await Blog.findOne({ slug });
+  if (existing) {
+    return NextResponse.json({ error: "Slug already exists" }, { status: 400 });
+  }
+
   const blog = await Blog.create({
     ...body,
-    slug: slugify(body.title, { lower: true, strict: true }),
+    slug,
     publishedAt: body.status === "published" ? new Date() : null,
   });
 

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "Home", href: "/", active: true },
+  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
@@ -11,6 +12,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-200">
       <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
@@ -24,19 +27,26 @@ export default function Navbar() {
 
         {/* CENTER: Nav Links */}
         <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-medium transition-colors ${
-                link.active
-                  ? "text-orange-500"
-                  : "text-gray-800 hover:text-orange-500"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive
+                    ? "text-orange-500"
+                    : "text-gray-800 hover:text-orange-500"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
 
         {/* RIGHT: Actions */}

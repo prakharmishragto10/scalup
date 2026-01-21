@@ -43,7 +43,7 @@ export default function HeroSection() {
               </button>
 
               <button className="px-6 py-3 rounded-full border border-gray-300 font-medium hover:bg-gray-100 transition flex items-center gap-2">
-                ▶ Watch Demo
+                ▶ Book a free Demo
               </button>
             </div>
 
